@@ -1,0 +1,151 @@
+type Match {
+  id: ID!
+  name: String!
+  players(filter: ModelPlayerFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelPlayerConnection
+}
+
+type Player {
+  id: ID!
+  name: String!
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelMatchConnection {
+  items: [Match]
+  nextToken: String
+}
+
+input ModelStringFilterInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+}
+
+input ModelIDFilterInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+}
+
+input ModelIntFilterInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  contains: Int
+  notContains: Int
+  between: [Int]
+}
+
+input ModelFloatFilterInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  contains: Float
+  notContains: Float
+  between: [Float]
+}
+
+input ModelBooleanFilterInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelMatchFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  and: [ModelMatchFilterInput]
+  or: [ModelMatchFilterInput]
+  not: ModelMatchFilterInput
+}
+
+type Query {
+  getMatch(id: ID!): Match
+  listMatchs(filter: ModelMatchFilterInput, limit: Int, nextToken: String): ModelMatchConnection
+  getPlayer(id: ID!): Player
+  listPlayers(filter: ModelPlayerFilterInput, limit: Int, nextToken: String): ModelPlayerConnection
+}
+
+input CreateMatchInput {
+  id: ID
+  name: String!
+}
+
+input UpdateMatchInput {
+  id: ID!
+  name: String
+}
+
+input DeleteMatchInput {
+  id: ID
+}
+
+type Mutation {
+  createMatch(input: CreateMatchInput!): Match
+  updateMatch(input: UpdateMatchInput!): Match
+  deleteMatch(input: DeleteMatchInput!): Match
+  createPlayer(input: CreatePlayerInput!): Player
+  updatePlayer(input: UpdatePlayerInput!): Player
+  deletePlayer(input: DeletePlayerInput!): Player
+}
+
+type Subscription {
+  onCreateMatch: Match @aws_subscribe(mutations: ["createMatch"])
+  onUpdateMatch: Match @aws_subscribe(mutations: ["updateMatch"])
+  onDeleteMatch: Match @aws_subscribe(mutations: ["deleteMatch"])
+  onCreatePlayer: Player @aws_subscribe(mutations: ["createPlayer"])
+  onUpdatePlayer: Player @aws_subscribe(mutations: ["updatePlayer"])
+  onDeletePlayer: Player @aws_subscribe(mutations: ["deletePlayer"])
+}
+
+type ModelPlayerConnection {
+  items: [Player]
+  nextToken: String
+}
+
+input ModelPlayerFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  and: [ModelPlayerFilterInput]
+  or: [ModelPlayerFilterInput]
+  not: ModelPlayerFilterInput
+}
+
+input CreatePlayerInput {
+  id: ID
+  name: String!
+  matchPlayersId: ID
+}
+
+input UpdatePlayerInput {
+  id: ID!
+  name: String
+  matchPlayersId: ID
+}
+
+input DeletePlayerInput {
+  id: ID
+}

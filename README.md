@@ -1,1 +1,1 @@
-# cric
+# Cricket user profile application

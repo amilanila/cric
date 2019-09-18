@@ -1,0 +1,7 @@
+{
+    "AppSyncApiName": "cric",
+    "schemaGraphql": "s3://cric-20190918094932-deployment/amplify-appsync-files/schema.graphql.1568766046326",
+    "ResolverBucket": "cric-20190918094932-deployment",
+    "ResolverRootKey": "amplify-appsync-files",
+    "DeploymentTimestamp": "1568766046326"
+}

@@ -1,0 +1,51 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "cric-20190918094932-authRole",
+			"UnauthRoleArn": "arn:aws:iam::687781484308:role/cric-20190918094932-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::687781484308:role/cric-20190918094932-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "cric-20190918094932-deployment",
+			"UnauthRoleName": "cric-20190918094932-unauthRole",
+			"StackName": "cric-20190918094932",
+			"StackId": "arn:aws:cloudformation:us-east-1:687781484308:stack/cric-20190918094932/cd26bcd0-d9a5-11e9-83ac-12c9298e4208"
+		}
+	},
+	"auth": {},
+	"api": {
+		"cric": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "AMAZON_COGNITO_USER_POOLS",
+				"GraphQLAPIIdOutput": "rqje6bsgsjckxomict5szy4qle",
+				"GraphQLAPIEndpointOutput": "https://msth26csefgnln5f7gl4ga4qam.appsync-api.us-east-1.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-eswnmw5wuze4teaim53xubt3oi"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/cric-20190918094932-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apicric"
+			},
+			"lastPushTimeStamp": "2019-09-18T01:48:39.615Z",
+			"lastPushDirHash": "YYRjH945/i6kBV9eeaRvPdkdDms="
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/cric-20190918094932-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2019-09-18T01:48:39.623Z",
+			"output": {
+				"S3BucketSecureURL": "https://cric-20190918114646--hostingbucket.s3.amazonaws.com",
+				"WebsiteURL": "http://cric-20190918114646--hostingbucket.s3-website-us-east-1.amazonaws.com",
+				"Region": "us-east-1",
+				"HostingBucketName": "cric-20190918114646--hostingbucket"
+			},
+			"lastPushDirHash": "tvEDUn5dBZMTAqsql7sRrbPjqzg="
+		}
+	}
+}

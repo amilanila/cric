@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "cric-20190918094932-authRole",
+            "UnauthRoleArn": "arn:aws:iam::687781484308:role/cric-20190918094932-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::687781484308:role/cric-20190918094932-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "cric-20190918094932-deployment",
+            "UnauthRoleName": "cric-20190918094932-unauthRole",
+            "StackName": "cric-20190918094932",
+            "StackId": "arn:aws:cloudformation:us-east-1:687781484308:stack/cric-20190918094932/cd26bcd0-d9a5-11e9-83ac-12c9298e4208"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+type Match @model {
+  id: ID!
+  name: String!
+  players: [Player] @connection
+}
+type Player @model {
+  id: ID!
+  name: String!
+}
